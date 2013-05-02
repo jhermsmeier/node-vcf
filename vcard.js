@@ -66,7 +66,7 @@ function vCard( data ) {
             field.data = parseFloat( value )
             break
           case 'timestamp':
-            field.data = +value * 1000
+            field.data = parseInt( value, 10 ) * 1000
             break
           default:
             field.data = value
