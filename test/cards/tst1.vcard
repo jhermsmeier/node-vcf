@@ -1,0 +1,9 @@
+BEGIN:vCard
+DESCRIPTION:Healey's\n\nLook up exact time.\n
+email;type=work:work@example.com
+email;type=internet,home;type=pref:home@example.com
+fax;type=foo,pref;bar:fax
+name:firstname
+name:secondname
+time;value=time:
+END:vCARD

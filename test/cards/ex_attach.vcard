@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Middle Family;Ny_full
+PHOTO:val\nue
+PHOTO;encoding=8bit:val\nue
+PHOTO;encoding=8bit:val\nue
+PHOTO;encoding=8bit;type=atype:val\nue
+PHOTO;value=binary;encoding=8bit:val\nue
+PHOTO;value=binary;encoding=8bit:val\nue
+PHOTO;value=binary;encoding=8bit;type=atype:val\nue
+PHOTO;value=text;encoding=8bit:val\nue
+PHOTO;value=text;encoding=8bit:val\nue
+PHOTO;value=text;encoding=8bit;type=atype:val\nue
+PHOTO;value=uri:my://
+PHOTO;value=uri;type=atype:my://
+END:VCARD
