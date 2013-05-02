@@ -9,9 +9,7 @@ A forgiving vCard parser.
 
 ## Install with [npm](https://npmjs.org)
 
-```shell
-npm install vcard
-```
+This module is not yet on npm
 
 ## Usage
 
