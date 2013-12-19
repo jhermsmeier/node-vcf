@@ -1,11 +1,11 @@
 {
   
-  "name": "vcard",
-  "version": "0.0.1",
+  "name": "vcf",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "Parse and construct vCards",
   "kewords": [
-    "vcard"
+    "vcard", "vcf"
   ],
   
   "author": {
@@ -17,11 +17,11 @@
   "main": "vcard.js",
   
   "scripts": {
-    "test": "mocha"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   
   "devDependencies": {
-    "mocha": "~1.9.0"
+    "mocha": ""
   },
   
   "repository": {
