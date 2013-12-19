@@ -14,7 +14,7 @@
     "url": "http://jhermsmeier.de"
   },
   
-  "main": "vcard.js",
+  "main": "lib/vcard",
   
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
