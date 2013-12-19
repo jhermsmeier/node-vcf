@@ -17,10 +17,12 @@
   "main": "lib/vcard",
   
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha"
+    "test": "node node_modules/mocha/bin/mocha",
+    "benchmark": "node node_modules/matcha/bin/matcha"
   },
   
   "devDependencies": {
+    "matcha": "",
     "mocha": ""
   },
   
