@@ -10,7 +10,7 @@
   
   "author": {
     "name": "Jonas Hermsmeier",
-    "email": "jhermsmeier@googlemail.com",
+    "email": "jhermsmeier@gmail.com",
     "url": "http://jhermsmeier.de"
   },
   
@@ -28,11 +28,11 @@
   
   "repository": {
     "type": "git",
-    "url": "git://github.com/jhermsmeier/node-vcard.git"
+    "url": "https://github.com/jhermsmeier/node-vcf.git"
   },
   
   "bugs": {
-    "url": "https://github.com/jhermsmeier/node-vcard/issues"
+    "url": "https://github.com/jhermsmeier/node-vcf/issues"
   }
   
 }
