@@ -21,10 +21,6 @@
     "benchmark": "node node_modules/matcha/bin/matcha"
   },
   
-  "dependencies": {
-    "mime-lib": ""
-  },
-  
   "devDependencies": {
     "matcha": "",
     "mocha": ""
