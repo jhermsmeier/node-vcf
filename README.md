@@ -31,3 +31,40 @@ var str = card.toString()
 // OR with version number (doesn't work, yet)
 var str = card.toString( '4.0' )
 ```
+
+Example output:
+```javascript
+{
+  version: '4.0',
+  n: {
+    data: 'Gump;Forrest;;;'
+  },
+  fn: 'Forrest Gump',
+  org: {
+    data: 'Bubba Gump Shrimp Co.'
+  },
+  title: {
+    data: 'Shrimp Man'
+  },
+  photo: {
+    data: 'http://www.example.com/dir_photos/my_photo.gif'
+  },
+  tel: [{
+    type: ['work', 'voice'],
+    value: 'uri',
+    data: 'tel:+1-111-555-1212'
+  }, {
+    type: ['home', 'voice'],
+    value: 'uri',
+    data: 'tel:+1-404-555-1212'
+  }],
+  adr: {
+    type: 'work',
+    label: '42 Plantation St.\\nBaytown, LA 30314\\nUnited States of America',
+    data: ';;42 Plantation St.;Baytown;LA;30314;United States of America'
+  },
+  email: {
+    data: 'forrestgump@example.com'
+  }
+}
+```
