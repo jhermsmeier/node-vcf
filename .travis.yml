@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "1"
+branches:
+  only:
+    - master
+script: npm test
