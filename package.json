@@ -1,38 +1,25 @@
 {
-  
   "name": "vcf",
-  "version": "0.1.1",
-  "license": "MIT",
+  "version": "0.2.0",
   "description": "Parse and construct vCards",
+  "license": "MIT",
   "keywords": [
-    "vcard", "vcf"
+    "vcard",
+    "vcf"
   ],
-  
-  "author": {
-    "name": "Jonas Hermsmeier",
-    "email": "jhermsmeier@gmail.com",
-    "url": "http://jhermsmeier.de"
-  },
-  
   "main": "lib/vcard",
-  
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha",
-    "benchmark": "node node_modules/matcha/bin/matcha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
-  "devDependencies": {
-    "matcha": "",
-    "mocha": ""
-  },
-  
+  "homepage": "https://github.com/jhermsmeier/node-vcf",
   "repository": {
     "type": "git",
     "url": "https://github.com/jhermsmeier/node-vcf.git"
   },
-  
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-vcf/issues"
   }
-  
 }
