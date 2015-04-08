@@ -1,9 +1,9 @@
-# vcf / vCard
+# VCF / vCard
+[![npm](http://img.shields.io/npm/v/vcf.svg?style=flat-square)](https://npmjs.com/vcf)
+[![npm downloads](http://img.shields.io/npm/dm/vcf.svg?style=flat-square)](https://npmjs.com/vcf)
+[![build status](http://img.shields.io/travis/jhermsmeier/node-vcf.svg?style=flat-square)](https://travis-ci.org/jhermsmeier/node-vcf)
 
-- [Install](#install-with-npm)
-- [Usage](#usage)
-
-## Install with [npm](https://npmjs.org)
+## Install via [npm](https://npmjs.com)
 
 ```sh
 $ npm install vcf
