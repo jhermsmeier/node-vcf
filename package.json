@@ -14,9 +14,20 @@
     "url": "https://jhermsmeier.de"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "~2.4.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --ui tdd"
+  },
+  "testling": {
+    "harness": "mocha-tdd",
+    "files": "test/*.js",
+    "browsers": [
+      "ie/10..latest",
+      "chrome/latest",
+      "firefox/latest"
+    ]
   },
   "homepage": "https://github.com/jhermsmeier/node-vcf",
   "repository": {
