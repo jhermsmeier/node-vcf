@@ -1,14 +1,18 @@
 {
   "name": "vcf",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Parse and construct vCards",
   "license": "MIT",
   "keywords": [
     "vcard",
     "vcf"
   ],
-  "main": "lib/vcard",
-  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
+  "main": "lib/vcard.js",
+  "author": {
+    "name": "Jonas Hermsmeier",
+    "email": "jhermsmeier@gmail.com",
+    "url": "https://jhermsmeier.de"
+  },
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
