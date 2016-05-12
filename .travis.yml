@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - "1"
+  - "4"
+  - "5"
+  - stable
 branches:
   only:
     - master
+sudo: false
 script: npm test
