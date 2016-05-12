@@ -9,7 +9,8 @@ suite( 'vCard', function() {
     test( 'charset should not be part of value', function() {
       var data = fs.readFileSync( __dirname + '/data/xing.vcf' )
       var card = new vCard( data )
-      assert.strictEqual( card.fn.indexOf( 'CHARSET' ), -1 )
+      assert.strictEqual( typeof card.fn, 'object' )
+      assert.strictEqual( card.fn.data.indexOf( 'CHARSET' ), -1 )
     })
     
   })
