@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:2.1
+N;CHARSET=ISO-8859-1:Mustermann;Hans-Peter;;
+FN;CHARSET=ISO-8859-1:Hans-Peter Mustermann
+SORT-STRING:mustermann
+CLASS:PUBLIC
+ADR;TYPE=work;CHARSET=ISO-8859-1:;;;City Name;;12345;Country
+ADR;TYPE=home;CHARSET=ISO-8859-1:;;;;;;
+ORG;CHARSET=ISO-8859-1:Example GmbH
+URL;TYPE=work:http://www.example.com
+TITLE;CHARSET=ISO-8859-1:CTO
+CATEGORIES;CHARSET=ISO-8859-1:Consulting
+PHOTO;VALUE=URL;TYPE=PNG:https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150
+NOTE;CHARSET=ISO-8859-1:17.02.2016, 19:18 - XING - http://www.xing.com/profile/Hans-Peter-Mustermann
+PRODID:-//XING//www.xing.com//version 2.0//DE
+UID:XING-UID-XXXXXXXX
+END:VCARD
