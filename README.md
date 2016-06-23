@@ -14,10 +14,11 @@ $ npm install vcf
 
 | Method              | op/s       |
 | :------------------ | ---------: |
-| vCard.normalize()   | 383,827    |
-| vCard.isSupported() | 17,959,503 |
-| vCard#parse()       | 13,040     |
-| vCard#toJSON()      | 734,794    |
+| vCard.normalize()   |    379,662 |
+| vCard.isSupported() | 15,612,641 |
+| vCard#parse()       |     12,309 |
+| vCard#toString()    |     45,715 |
+| vCard#toJSON()      |    159,824 |
 
 ## Usage
 

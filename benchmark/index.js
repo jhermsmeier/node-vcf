@@ -23,6 +23,10 @@ var vCard = require( '..' )
       return card.parse( input )
     })
 
+    bench( 'vCard#toString()', function() {
+      return instance.toString()
+    })
+
     bench( 'vCard#toJSON()', function() {
       return instance.toJSON()
     })
