@@ -2,9 +2,6 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-console.log( vCard )
-console.log( vCard.prototype )
-
 suite( 'vCard', function() {
 
   suite( 'Markers', function() {
