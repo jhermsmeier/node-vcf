@@ -11,6 +11,12 @@ suite( 'vCard', function() {
       var card = vCard.fromJSON( data )
     })
 
+    test( 'toJSON', function() {
+      var data = require( './data/jcard' )
+      var card = vCard.fromJSON( data )
+      assert.deepEqual( card.toJSON(), data )
+    })
+
   })
 
 })
