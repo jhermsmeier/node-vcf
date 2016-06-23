@@ -9,8 +9,8 @@ suite( 'vCard', function() {
     test( 'charset should not be part of value', function() {
       var data = fs.readFileSync( __dirname + '/data/xing.vcf' )
       var card = new vCard().parse( data )
-      assert.strictEqual( card.data.fn.toString().indexOf( 'CHARSET' ), -1 )
-      assert.equal( card.data.fn.toString(), 'Hans-Peter Mustermann' )
+      assert.strictEqual( card.data.fn.valueOf().indexOf( 'CHARSET' ), -1 )
+      assert.equal( card.data.fn.valueOf(), 'Hans-Peter Mustermann' )
       assert.strictEqual( card.data.fn.charset, 'ISO-8859-1' )
     })
 
