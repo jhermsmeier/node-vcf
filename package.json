@@ -13,7 +13,10 @@
     "email": "jhermsmeier@gmail.com",
     "url": "https://jhermsmeier.de"
   },
-  "dependencies": {},
+  "dependencies": {
+    "camelcase": "~3.0.0",
+    "foldline": "~1.0.0"
+  },
   "devDependencies": {
     "matcha": "~0.7.0",
     "mocha": "~2.5.3"
