@@ -5,12 +5,26 @@ var vCard = require( '..' )
 
   var filename = __dirname + '/../test/data/vcard-' + version + '.vcf'
   var input = fs.readFileSync( filename, 'utf8' )
+  var instance = new vCard()
+  instance.parse( input )
 
   suite( 'vCard ' + version, function() {
 
-    bench( '.parse()', function() {
+    bench( 'vCard.normalize()', function() {
+      return vCard.normalize( input )
+    })
+
+    bench( 'vCard.isSupported()', function() {
+      return vCard.isSupported( version )
+    })
+
+    bench( 'vCard#parse()', function() {
       var card = new vCard()
-      card.parse( input )
+      return card.parse( input )
+    })
+
+    bench( 'vCard#toJSON()', function() {
+      return instance.toJSON()
     })
 
   })

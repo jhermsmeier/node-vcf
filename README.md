@@ -10,6 +10,15 @@
 $ npm install vcf
 ```
 
+## Benchmarks
+
+| Method              | op/s       |
+| :------------------ | ---------: |
+| vCard.normalize()   | 382,786    |
+| vCard.isSupported() | 16,946,339 |
+| vCard#parse()       | 11,820     |
+| vCard#toJSON()      | 722,864    |
+
 ## Usage
 
 ```javascript
