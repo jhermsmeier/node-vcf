@@ -4,36 +4,88 @@ var assert = require( 'assert' )
 
 suite( 'vCard', function() {
 
-  suite( 'Character Sets', function() {
+  var card = null
 
-    test( 'charset should not be part of value', function() {
-      var data = fs.readFileSync( __dirname + '/data/xing.vcf' )
-      var card = new vCard().parse( data )
-      assert.strictEqual( card.data.fn.valueOf().indexOf( 'CHARSET' ), -1 )
-      assert.equal( card.data.fn.valueOf(), 'Hans-Peter Mustermann' )
-      assert.strictEqual( card.data.fn.charset, 'ISO-8859-1' )
-    })
-
+  suiteSetup( 'parse', function() {
+    var data = fs.readFileSync( __dirname + '/data/vcard-4.0.vcf' )
+    card = vCard.parse( data )
   })
 
-  suite( 'Photo URL', function() {
-
-    test( 'URL parameters should not become object properties', function() {
-      var data = fs.readFileSync( __dirname + '/data/xing.vcf' )
-      var card = new vCard().parse( data )
-      assert.equal( card.data.photo.txtsize, null )
-    })
-
+  test( 'should not have BEGIN as property', function() {
+    assert.equal( card.get( 'begin' ), null )
   })
 
-  suite( 'Multi', function() {
+  test( 'should not have END as property', function() {
+    assert.equal( card.get( 'end' ), null )
+  })
 
-    test( 'Parses multiple vCards form one file', function() {
-      var data = fs.readFileSync( __dirname + '/data/multiple.vcf' )
-      var cards = vCard.parseMultiple( data )
-      assert.equal( cards.length, 3 )
+  test( 'version number', function() {
+    assert.strictEqual( card.version, '4.0' )
+    assert.strictEqual( card.get( 'version' ).valueOf(), '4.0' )
+  })
+
+  test( 'name', function() {
+    assert.strictEqual( card.get( 'n' ).valueOf(), 'Gump;Forrest;;;' )
+  })
+
+  test( 'full name', function() {
+    assert.strictEqual( card.get( 'fn' ).valueOf(), 'Forrest Gump' )
+  })
+
+  test( 'property arrays', function() {
+    assert.ok( Array.isArray( card.get( 'tel' ) ) )
+    assert.ok( card.get( 'tel' )[0] instanceof vCard.Property )
+  })
+
+  test( 'get() should return property clones', function() {
+    assert.notStrictEqual( card.data.email, card.get( 'email' ) )
+  })
+
+  test( 'set() should set a property', function() {
+    card.set( 'role', 'Communications' )
+    assert.strictEqual( card.get( 'role' ).valueOf(), 'Communications' )
+  })
+
+  test( 'set() should overwrite arrays of properties', function() {
+    var address = ';;100 Waters Edge;Baytown;LA;30314;United States of America'
+    card.set( 'adr', address, {
+      type: [ 'work' ],
+      label: '"100 Waters Edge\nBaytown, LA 30314\nUnited States of America"',
     })
+    assert.strictEqual( Array.isArray( card.get( 'adr' ) ), false )
+    assert.strictEqual( card.get( 'adr' ).valueOf(), address )
+  })
 
+  test( 'add() should add a property instead of replacing', function() {
+    var address = ';;42 Plantation St.;Baytown;LA;30314;United States of America'
+    card.add( 'adr', address, {
+      type: [ 'home' ],
+      label: '"42 Plantation St.\nBaytown, LA 30314\nUnited States of America"',
+    })
+    assert.strictEqual( Array.isArray( card.get( 'adr' ) ), true )
+    assert.strictEqual( card.get( 'adr' )[1].valueOf(), address )
+  })
+
+  test( 'setProperty() should set (replace) a raw vCard.Property', function() {
+    var address = ';;100 Waters Edge;Baytown;LA;30314;United States of America'
+    var property = new vCard.Property( 'adr', address, {
+      type: [ 'work' ],
+      label: '"100 Waters Edge\nBaytown, LA 30314\nUnited States of America"',
+    })
+    card.setProperty( property )
+    assert.strictEqual( Array.isArray( card.get( 'adr' ) ), false )
+    assert.strictEqual( card.get( 'adr' ).valueOf(), address )
+  })
+
+  test( 'addProperty() should add a raw vCard.Property', function() {
+    var address = ';;42 Plantation St.;Baytown;LA;30314;United States of America'
+    var property = new vCard.Property( 'adr', address, {
+      type: [ 'home' ],
+      label: '"42 Plantation St.\nBaytown, LA 30314\nUnited States of America"',
+    })
+    card.addProperty( property )
+    assert.strictEqual( Array.isArray( card.get( 'adr' ) ), true )
+    assert.strictEqual( card.get( 'adr' )[1].valueOf(), address )
   })
 
 })
