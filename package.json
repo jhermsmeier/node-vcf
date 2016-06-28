@@ -1,10 +1,12 @@
 {
   "name": "vcf",
   "version": "0.2.3",
-  "description": "Parse and construct vCards",
+  "description": "Parse and construct vCards, jCards",
   "license": "MIT",
   "keywords": [
     "vcard",
+    "hcard",
+    "jcard",
     "vcf"
   ],
   "main": "lib/vcard.js",
@@ -13,12 +15,13 @@
     "email": "jhermsmeier@gmail.com",
     "url": "https://jhermsmeier.de"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "mocha": "~2.4.5"
+  "dependencies": {
+    "camelcase": "~3.0.0",
+    "foldline": "~1.0.0"
   },
-  "scripts": {
-    "test": "mocha --ui tdd"
+  "devDependencies": {
+    "matcha": "~0.7.0",
+    "mocha": "~2.5.3"
   },
   "testling": {
     "harness": "mocha-tdd",
@@ -36,5 +39,9 @@
   },
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-vcf/issues"
+  },
+  "scripts": {
+    "test": "mocha --ui tdd",
+    "benchmark": "matcha"
   }
 }
