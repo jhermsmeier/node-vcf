@@ -10,11 +10,23 @@
 $ npm install --save vcf
 ```
 
+## Index
+
+* [Usage](#usage)
+  - [Parsing](#parsing-a-vcard)
+* [Formats](#formats)
+  - [jCard](#format-jcard)
+  - [vCard](#format-vcf)
+* [API Documentation](#api)
+* [Benchmarks](#benchmarks)
+
 ## Usage
 
 ```javascript
 var vCard = require( 'vcf' )
 ```
+
+### Parsing a vCard
 
 ```js
 var card = vCard.parse( string )
@@ -114,6 +126,10 @@ EMAIL:forrestgump@example.com
 REV:20080424T195243Z
 END:VCARD
 ```
+
+## API
+
+
 
 ## Benchmarks
 
