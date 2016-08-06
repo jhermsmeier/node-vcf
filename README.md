@@ -128,6 +128,14 @@ END:VCARD
 ```
 
 ## API Reference
+## Classes
+
+<dl>
+<dt><a href="#Property">Property</a></dt>
+<dd></dd>
+<dt><a href="#vCard">vCard</a></dt>
+<dd></dd>
+</dl>
 
 <a name="vCard"></a>
 
@@ -144,6 +152,7 @@ END:VCARD
         * [.addProperty(prop)](#vCard+addProperty)
         * [.parse(value)](#vCard+parse) ⇒ <code>[vCard](#vCard)</code>
         * [.toString(version, charset)](#vCard+toString) ⇒ <code>String</code>
+        * [.toJCard(version)](#vCard+toJCard) ⇒ <code>Array</code>
         * [.toJSON()](#vCard+toJSON) ⇒ <code>Array</code>
     * _static_
         * [.Property](#vCard.Property) : <code>function</code>
@@ -248,6 +257,18 @@ Format the vCard as vcf with given version
 | --- | --- |
 | version | <code>String</code> |
 | charset | <code>String</code> |
+
+<a name="vCard+toJCard"></a>
+
+### vCard.toJCard(version) ⇒ <code>Array</code>
+Format the card as jCard
+
+**Kind**: instance method of <code>[vCard](#vCard)</code>
+**Returns**: <code>Array</code> - jCard
+
+| Param | Type | Default |
+| --- | --- | --- |
+| version | <code>String</code> | <code>&#x27;4.0&#x27;</code> |
 
 <a name="vCard+toJSON"></a>
 
@@ -372,6 +393,84 @@ Format a card object according to the given version
 | card | <code>[vCard](#vCard)</code> |
 | version | <code>String</code> |
 
+<a name="Property"></a>
+
+## Property
+**Kind**: global class
+
+* [Property](#Property)
+    * [new Property(field, value, params)](#new_Property_new)
+    * _instance_
+        * [.is(type)](#Property+is) ⇒ <code>Boolean</code>
+        * [.clone()](#Property+clone) ⇒ <code>[Property](#Property)</code>
+        * [.toString(version)](#Property+toString) ⇒ <code>String</code>
+        * [.valueOf()](#Property+valueOf) ⇒ <code>String</code>
+        * [.toJSON()](#Property+toJSON) ⇒ <code>Array</code>
+    * _static_
+        * [.fromJSON(data)](#Property.fromJSON) ⇒ <code>[Property](#Property)</code>
+
+<a name="new_Property_new"></a>
+
+### new Property(field, value, params)
+vCard Property
+
+
+| Param | Type |
+| --- | --- |
+| field | <code>String</code> |
+| value | <code>String</code> |
+| params | <code>Object</code> |
+
+<a name="Property+is"></a>
+
+### property.is(type) ⇒ <code>Boolean</code>
+Check whether the property is of a given type
+
+**Kind**: instance method of <code>[Property](#Property)</code>
+
+| Param | Type |
+| --- | --- |
+| type | <code>String</code> |
+
+<a name="Property+clone"></a>
+
+### property.clone() ⇒ <code>[Property](#Property)</code>
+Clone the property
+
+**Kind**: instance method of <code>[Property](#Property)</code>
+<a name="Property+toString"></a>
+
+### property.toString(version) ⇒ <code>String</code>
+Format the property as vcf with given version
+
+**Kind**: instance method of <code>[Property](#Property)</code>
+
+| Param | Type |
+| --- | --- |
+| version | <code>String</code> |
+
+<a name="Property+valueOf"></a>
+
+### property.valueOf() ⇒ <code>String</code>
+Get the property's value
+
+**Kind**: instance method of <code>[Property](#Property)</code>
+<a name="Property+toJSON"></a>
+
+### property.toJSON() ⇒ <code>Array</code>
+Format the property as jCard data
+
+**Kind**: instance method of <code>[Property](#Property)</code>
+<a name="Property.fromJSON"></a>
+
+### Property.fromJSON(data) ⇒ <code>[Property](#Property)</code>
+Constructs a vCard.Property from jCard data
+
+**Kind**: static method of <code>[Property](#Property)</code>
+
+| Param | Type |
+| --- | --- |
+| data | <code>Array</code> |
 
 ## Benchmarks
 
