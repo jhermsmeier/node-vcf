@@ -1,6 +1,6 @@
 {
   "name": "vcf",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Parse and construct vCards, jCards",
   "license": "MIT",
   "keywords": [
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "matcha": "~0.7.0",
-    "mocha": "~2.5.3"
+    "mocha": "~3.0.1"
   },
   "testling": {
     "harness": "mocha-tdd",
