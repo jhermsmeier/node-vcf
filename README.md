@@ -131,8 +131,6 @@ END:VCARD
 ## Classes
 
 <dl>
-<dt><a href="#Property">Property</a></dt>
-<dd></dd>
 <dt><a href="#vCard">vCard</a></dt>
 <dd></dd>
 </dl>
@@ -393,96 +391,14 @@ Format a card object according to the given version
 | card | <code>[vCard](#vCard)</code> |
 | version | <code>String</code> |
 
-<a name="Property"></a>
+<a name="capitalDashCase"></a>
 
-## Property
-**Kind**: global class
+## capitalDashCase(value) ⇒ <code>String</code>
+Turn a string into capitalized dash-case
 
-* [Property](#Property)
-    * [new Property(field, value, params)](#new_Property_new)
-    * _instance_
-        * [.is(type)](#Property+is) ⇒ <code>Boolean</code>
-        * [.clone()](#Property+clone) ⇒ <code>[Property](#Property)</code>
-        * [.toString(version)](#Property+toString) ⇒ <code>String</code>
-        * [.valueOf()](#Property+valueOf) ⇒ <code>String</code>
-        * [.toJSON()](#Property+toJSON) ⇒ <code>Array</code>
-    * _static_
-        * [.fromJSON(data)](#Property.fromJSON) ⇒ <code>[Property](#Property)</code>
-
-<a name="new_Property_new"></a>
-
-### new Property(field, value, params)
-vCard Property
-
+**Kind**: global function
+**Internal**: used by `Property#toString()`
 
 | Param | Type |
 | --- | --- |
-| field | <code>String</code> |
 | value | <code>String</code> |
-| params | <code>Object</code> |
-
-<a name="Property+is"></a>
-
-### property.is(type) ⇒ <code>Boolean</code>
-Check whether the property is of a given type
-
-**Kind**: instance method of <code>[Property](#Property)</code>
-
-| Param | Type |
-| --- | --- |
-| type | <code>String</code> |
-
-<a name="Property+clone"></a>
-
-### property.clone() ⇒ <code>[Property](#Property)</code>
-Clone the property
-
-**Kind**: instance method of <code>[Property](#Property)</code>
-<a name="Property+toString"></a>
-
-### property.toString(version) ⇒ <code>String</code>
-Format the property as vcf with given version
-
-**Kind**: instance method of <code>[Property](#Property)</code>
-
-| Param | Type |
-| --- | --- |
-| version | <code>String</code> |
-
-<a name="Property+valueOf"></a>
-
-### property.valueOf() ⇒ <code>String</code>
-Get the property's value
-
-**Kind**: instance method of <code>[Property](#Property)</code>
-<a name="Property+toJSON"></a>
-
-### property.toJSON() ⇒ <code>Array</code>
-Format the property as jCard data
-
-**Kind**: instance method of <code>[Property](#Property)</code>
-<a name="Property.fromJSON"></a>
-
-### Property.fromJSON(data) ⇒ <code>[Property](#Property)</code>
-Constructs a vCard.Property from jCard data
-
-**Kind**: static method of <code>[Property](#Property)</code>
-
-| Param | Type |
-| --- | --- |
-| data | <code>Array</code> |
-
-## Benchmarks
-
-| Method              | op/s       |
-| :------------------ | ---------: |
-| vCard.normalize()   |    379,662 |
-| vCard.isSupported() | 15,612,641 |
-| vCard#parse()       |     12,309 |
-| vCard#toString()    |     45,715 |
-| vCard#toJSON()      |    159,824 |
-
-For more detail, run
-```
-npm run benchmark
-```
