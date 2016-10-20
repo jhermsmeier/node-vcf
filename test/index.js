@@ -104,7 +104,7 @@ suite( 'vCard', function() {
     test( 'toString() should render populated properties', function() {
       var card = new vCard()
       card.set( 'tel', '000' )
-      assert.ok( !/TEL: 000/i.test( card.toString() ) )
+      assert.ok( /TEL:000/i.test( card.toString() ) )
     })
 
     test( 'toString() should not render empty properties', function() {
