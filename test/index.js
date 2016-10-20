@@ -101,6 +101,18 @@ suite( 'vCard', function() {
       assert.strictEqual( card.get( 'adr' )[1].valueOf(), address )
     })
 
+    test( 'toString() should render populated properties', function() {
+      var card = new vCard()
+      card.set( 'tel', '000' )
+      assert.ok( !/TEL: 000/i.test( card.toString() ) )
+    })
+
+    test( 'toString() should not render empty properties', function() {
+      var card = new vCard()
+      card.set( 'tel', undefined )
+      assert.ok( !/TEL/i.test( card.toString() ) )
+    })
+
   })
 
 })
