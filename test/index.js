@@ -50,6 +50,10 @@ suite( 'vCard', function() {
       assert.ok( card.get( 'tel' )[0] instanceof vCard.Property )
     })
 
+    test( 'group properties', function() {
+      assert.ok( card.get( 'tel' )[2].group === 'item1' )
+    })
+
     test( 'get() should return property clones', function() {
       assert.notStrictEqual( card.data.email, card.get( 'email' ) )
     })
