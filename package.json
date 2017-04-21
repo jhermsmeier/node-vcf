@@ -1,6 +1,6 @@
 {
   "name": "vcf",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Parse and construct vCards, jCards",
   "license": "MIT",
   "keywords": [
