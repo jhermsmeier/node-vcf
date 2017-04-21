@@ -50,6 +50,10 @@ suite( 'vCard', function() {
       assert.ok( card.get( 'tel' )[0] instanceof vCard.Property )
     })
 
+    test( 'group properties', function() {
+      assert.ok( card.get( 'tel' )[2].group === 'item1' )
+    })
+
     test( 'get() should return property clones', function() {
       assert.notStrictEqual( card.data.email, card.get( 'email' ) )
     })
@@ -111,6 +115,12 @@ suite( 'vCard', function() {
       var card = new vCard()
       card.set( 'tel', undefined )
       assert.ok( !/TEL/i.test( card.toString() ) )
+    })
+
+    test( 'toString() should render properties with group by prefixing the group to the property name', function() {
+      var card = new vCard()
+      card.set( 'tel', '000' , { group: 'item1' })
+      assert.ok( /item1.TEL:000/i.test( card.toString() ) )
     })
 
   })

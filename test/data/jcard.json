@@ -8,7 +8,8 @@
     [ "photo", { "mediatype": "image/gif" }, "uri", "http://www.example.com/dir_photos/my_photo.gif" ],
     [ "tel", { "type": [ "work", "voice" ] }, "uri", "tel:+1-111-555-1212" ],
     [ "tel", { "type": [ "home", "voice" ] }, "uri", "tel:+1-404-555-1212" ],
-    [ 
+    [ "tel", { "type": [ "home", "voice" ], "group": "item1" }, "uri", "tel:+1-404-555-1213" ],
+    [
       "adr", { "type": "work", "label": "100 Waters Edge\nBaytown, LA 30314\nUnited States of America" },
       "text", [ "", "", "100 Waters Edge", "Baytown", "LA", "30314", "United States of America" ]
     ],
