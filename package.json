@@ -16,12 +16,12 @@
     "url": "https://jhermsmeier.de"
   },
   "dependencies": {
-    "camelcase": "~3.0.0",
+    "camelcase": "~4.1.0",
     "foldline": "~1.0.0"
   },
   "devDependencies": {
     "matcha": "~0.7.0",
-    "mocha": "~3.1.2"
+    "mocha": "~3.2.0"
   },
   "testling": {
     "harness": "mocha-tdd",
