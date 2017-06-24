@@ -67,7 +67,7 @@ var cards = vCard.parse( string );
 if (!Array.isArray(cards)) {
    // treat returned object as a single vCard
 } else {
-   // treat returned object as an array of vCard
+   // treat returned object as an array of vCards
 }
 ```
 ### Parsing Multiple vCards
