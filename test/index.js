@@ -21,7 +21,7 @@ suite( 'vCard', function() {
 
     suiteSetup( 'parse', function() {
       var data = fs.readFileSync( __dirname + '/data/vcard-4.0.vcf' )
-      card = vCard.parse( data )
+      card = new vCard().parse( data )
     })
 
     test( 'should not have BEGIN as property', function() {
