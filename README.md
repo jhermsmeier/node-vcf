@@ -26,7 +26,7 @@ $ npm install --save vcf
 var vCard = require( 'vcf' )
 ```
 
-### Parsing a vCard
+### Parsing a Single vCard
 
 ```js
 var card = vCard.parse( string )
@@ -58,6 +58,24 @@ vCard {
     rev: [String: '20080424T195243Z']
   }
 }
+```
+
+Note: in future versions the return value may be changed to an array (still under discussion), so we recommend changing your return handling to, in order to protect yourself:
+
+```js
+var cards = vCard.parse( string );
+if (!Array.isArray(cards)) {
+   // treat returned object as a single vCard
+} else {
+   // treat returned object as an array of vCard
+}
+```
+### Parsing Multiple vCards
+
+In order to deal with a string that contains multiple vCards, you will need to use a different function, which returns an array of cards:
+
+```js
+var cards = vCard.parseMultiple( string )
 ```
 
 ## Formats
