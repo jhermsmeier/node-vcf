@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "matcha": "~0.7.0",
-    "mocha": "~3.2.0"
+    "mocha": "^3.4.2"
   },
   "testling": {
     "harness": "mocha-tdd",

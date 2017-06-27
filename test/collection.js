@@ -8,7 +8,7 @@ suite( 'vCard', function() {
 
     test( 'Parses multiple vCards form one file', function() {
       var data = fs.readFileSync( __dirname + '/data/multiple.vcf' )
-      var cards = vCard.parseMultiple( data )
+      var cards = vCard.parse( data )
       assert.equal( cards.length, 3 )
     })
 
