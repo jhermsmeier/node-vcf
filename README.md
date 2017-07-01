@@ -66,7 +66,7 @@ In order to deal with a string that contains multiple vCards,
 you will need to use a different function, which returns an array of cards:
 
 ```js
-var cards = vCard.parseMultiple( string )
+var cards = vCard.parse( string )
 ```
 
 ## Formats
