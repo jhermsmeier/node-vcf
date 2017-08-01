@@ -16,7 +16,7 @@
     "url": "https://jhermsmeier.de"
   },
   "dependencies": {
-    "camelcase": "~4.1.0",
+    "camelcase": "~3.0.0",
     "foldline": "~1.0.0"
   },
   "devDependencies": {
