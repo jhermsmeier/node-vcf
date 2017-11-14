@@ -74,7 +74,7 @@ function parseLines(lines) {
     var params = match[2] ? match[2].replace(/^;|;$/g, '').split(';') : [];
 
     var propParams = params.reduce(createParams, group ? { group: group } : {});
-    var propName = camelCase(property);
+    var propName = property.toLowerCase();
     var propVal = new Property(propName, clearValue(value), propParams);
 
     set(data, propName, propVal);
