@@ -47,7 +47,6 @@
   "scripts": {
     "test": "mocha --ui tdd",
     "benchmark": "matcha",
-    "build": "browserify ./lib/vcard.js --standalone vCard -o dist/vcard.js -t [ babelify --presets [ env ] ]",
-    "postbuild": "sed -i 's/const CRLF/var CRLF/' dist/vcard.js"
+    "build": "browserify ./lib/vcard.js --standalone vCard -o dist/vcard.js -t [ babelify --presets [ env ] ]"
   }
 }
