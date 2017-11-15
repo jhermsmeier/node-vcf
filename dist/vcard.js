@@ -88,8 +88,6 @@ module.exports = parseLines;
 },{"./property":2,"camelcase":4}],2:[function(require,module,exports){
 'use strict';
 
-var ESCAPE_REGEX = /\:|\;|\"/gi;
-
 /**
  * vCard Property
  * @constructor
@@ -103,41 +101,13 @@ function Property(field, value, params) {
 
   if (!(this instanceof Property)) return new Property(value);
 
-  if (params != null) Object.assign(this, cleanParameters(params));
+  if (params != null) Object.assign(this, params);
 
   this._field = field;
   this._data = value;
 
   Object.defineProperty(this, '_field', { enumerable: false });
   Object.defineProperty(this, '_data', { enumerable: false });
-}
-
-/**
- * Clean parameters value
- * @param  {Object} params
- * @return {Object}
- */
-function cleanParameters(params) {
-  return Object.keys(params).reduce(function (acc, key) {
-    acc[key] = cleanValue(params[key]);
-
-    return acc;
-  }, {});
-}
-
-/**
- * Make sure we don't import bad formated value
- * @param  {String} value
- * @return {String}
- */
-function cleanValue(value) {
-  if (typeof value === 'string') {
-    return value.replace(ESCAPE_REGEX, function (val) {
-      return '\\' + val;
-    }).trim();
-  }
-
-  return value;
 }
 
 /**
