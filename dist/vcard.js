@@ -312,10 +312,12 @@ vCard.foldLine = require('foldline');
  */
 vCard.normalize = function (input) {
   return (input + '').
+  // Trim whitespace
+  replace(/^[\s\r\n]+|[\s\r\n]+$/g, '')
   // Trim blank lines
-  replace(/(\r?\n)\s*(\r?\n)|$/g, '$1')
+  .replace(/(\r?\n)\s*(\r?\n)|$/g, '$1')
   // Unfold folded lines
-  .replace(/\r?\n/g, '');
+  .replace(/\r?\n[\x20\x09]+/g, '');
 };
 
 /**
