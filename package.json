@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "camelcase": "~3.0.0",
-    "foldline": "~1.0.0"
+    "foldline": "https://github.com/KAYLukas/node-foldline.git#master"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

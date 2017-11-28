@@ -74,7 +74,7 @@ function parseLines(lines) {
     var params = match[2] ? match[2].replace(/^;|;$/g, '').split(';') : [];
 
     var propParams = params.reduce(createParams, group ? { group: group } : {});
-    var propName = camelCase(property);
+    var propName = property.toLowerCase();
     var propVal = new Property(propName, clearValue(value), propParams);
 
     set(data, propName, propVal);
@@ -311,13 +311,13 @@ vCard.foldLine = require('foldline');
  * @return {String}
  */
 vCard.normalize = function (input) {
-  return (input + '').
-  // Trim whitespace
-  replace(/^[\s\r\n]+|[\s\r\n]+$/g, '')
-  // Trim blank lines
-  .replace(/(\r?\n)\s*(\r?\n)|$/g, '$1')
-  // Unfold folded lines
-  .replace(/\r?\n[\x20\x09]+/g, '');
+  // remove unfolded lines
+  /*
+  * Don't trim lines at this moment: the old manner caused
+  * KEY\n BLOCK to go to KEYBLOCK instead of KEY BLOCK. Effectively letting foldlines remove random spaces from
+  * the input when converting to vcard and parsing that vcard again.
+  */
+  return (input + '').replace(/\r?\n\s*(?=\r?\n[^\x20\x09])/g, '').replace(/\r?\n([\x20\x09]|$)/g, '');
 };
 
 /**
@@ -694,28 +694,39 @@ module.exports = function foldLine( input, maxLength, hardWrap ) {
   var CRLF = '\r\n'
 
   var lines = [], len = input.length
-  var lastIndex = 0, index = 0
+  var lastIndex = 0
 
-  if( !hardWrap ) {
-    while( ~(lastIndex = input.lastIndexOf( ' ', maxLength + index )) ) {
-      if( lastIndex <= index ) { break }
-      if( input.slice( index ).length > maxLength ) {
-        lines.push( (index ? ' ' : '') + input.slice( index, lastIndex ) )
-        index = lastIndex + 1
-      } else {
-        lines.push( (index ? ' ' : '') + input.slice( index ) )
-        index = len
-      }
+  if (hardWrap) {
+
+    // We remove the one <space> extra here again,
+    // since we're going into hard folding mode
+    maxLength++
+
+    while( index < len ) {
+      lines.push( input.slice( index, index += maxLength ) )
     }
+
+    return lines.join( CRLF + ' ' )
   }
 
-  // We remove the one <space> extra here again,
-  // since we're going into hard folding mode
-  maxLength++
+  for (var index = 0; index < len;) {
+    lastIndex = input.lastIndexOf( ' ', maxLength + index )
+    if (input.slice(index).length <= maxLength) {
+      lines.push( input.slice( index ) )
+      break;
+    }
 
-  while( index < len ) {
-    lines.push( input.slice( index, index += maxLength ) )
+    if (lastIndex <= index) {
+      lines.push(input.slice(index, index + maxLength));
+      index += maxLength;
+      continue;
+    }
+
+
+    lines.push(input.slice( index, lastIndex ) )
+    index = lastIndex
   }
+
 
   return lines.join( CRLF + ' ' )
 
