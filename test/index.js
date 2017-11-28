@@ -10,8 +10,14 @@ suite( 'vCard', function() {
       var data = fs.readFileSync( __dirname + '/data/empty-lines.vcf', 'utf8' )
       var str = vCard.normalize( data )
       assert.ok( /^\s*$/m.test( str ) )
-      assert.ok( str.indexOf( '\r\nREV:2014-03-01T22:11:10Z\r\nEND' ) !== -1 )
+      assert.ok( /\r?\nREV:2014-03-01T22:11:10Z\r?\nEND/g.test( str ) )
     })
+
+    test( 'normalize should not concatenate words by unfolding lines', function() {
+      var data = fs.readFileSync( __dirname + '/data/long-address.vcf', 'utf8' )
+      var str = vCard.normalize( data )
+      assert.ok( str.indexOf( 'Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz Straße 1') !== -1);
+    });
 
   })
 
