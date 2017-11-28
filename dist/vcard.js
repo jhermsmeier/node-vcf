@@ -317,7 +317,7 @@ vCard.normalize = function (input) {
   * KEY\n BLOCK to go to KEYBLOCK instead of KEY BLOCK. Effectively letting foldlines remove random spaces from
   * the input when converting to vcard and parsing that vcard again.
   */
-  return (input + '').replace(/\r?\n(?=([\x20\x09]|$))/g, '').replace(/\r?\n\s*(?=\r?\n[^\x20\x09])/g, '');
+  return (input + '').replace(/\r?\n\s*(?=\r?\n[^\x20\x09])/g, '').replace(/\r?\n([\x20\x09]|$)/g, '');
 };
 
 /**
@@ -694,28 +694,39 @@ module.exports = function foldLine( input, maxLength, hardWrap ) {
   var CRLF = '\r\n'
 
   var lines = [], len = input.length
-  var lastIndex = 0, index = 0
+  var lastIndex = 0
 
-  if( !hardWrap ) {
-    while( ~(lastIndex = input.lastIndexOf( ' ', maxLength + index )) ) {
-      if( lastIndex <= index ) { break }
-      if( input.slice( index ).length > maxLength ) {
-        lines.push( (index ? ' ' : '') + input.slice( index, lastIndex ) )
-        index = lastIndex + 1
-      } else {
-        lines.push( (index ? ' ' : '') + input.slice( index ) )
-        index = len
-      }
+  if (hardWrap) {
+
+    // We remove the one <space> extra here again,
+    // since we're going into hard folding mode
+    maxLength++
+
+    while( index < len ) {
+      lines.push( input.slice( index, index += maxLength ) )
     }
+
+    return lines.join( CRLF + ' ' )
   }
 
-  // We remove the one <space> extra here again,
-  // since we're going into hard folding mode
-  maxLength++
+  for (var index = 0; index < len;) {
+    lastIndex = input.lastIndexOf( ' ', maxLength + index )
+    if (input.slice(index).length <= maxLength) {
+      lines.push( input.slice( index ) )
+      break;
+    }
 
-  while( index < len ) {
-    lines.push( input.slice( index, index += maxLength ) )
+    if (lastIndex <= index) {
+      lines.push(input.slice(index, index + maxLength));
+      index += maxLength;
+      continue;
+    }
+
+
+    lines.push(input.slice( index, lastIndex ) )
+    index = lastIndex
   }
+
 
   return lines.join( CRLF + ' ' )
 

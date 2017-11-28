@@ -30,6 +30,16 @@ suite( 'vCard', function() {
       card = new vCard().parse( data )
     })
 
+    test ( 'storing a PGP KEY in a vcard should not mangle the data', function () {
+      var key = fs.readFileSync( __dirname + '/data/publickey.asc', 'utf8' )
+      var property = new vCard.Property( 'key',  key, { group: 'item1'})
+      card.addProperty(property)
+      var reparsedCard = new vCard().parse(card.toString('4.0'));
+      card.remove('key');
+      assert.ok(reparsedCard.get('key').valueOf().indexOf( '-----BEGIN PGP PUBLIC KEY BLOCK-----' ) !== -1);
+      assert.ok(reparsedCard.get('key').valueOf().indexOf( '-----END PGP PUBLIC KEY BLOCK-----' ) !== -1);
+    })
+
     test( 'should not have BEGIN as property', function() {
       assert.equal( card.get( 'begin' ), null )
     })
