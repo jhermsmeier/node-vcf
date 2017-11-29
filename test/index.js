@@ -11,6 +11,7 @@ suite( 'vCard', function() {
       var str = vCard.normalize( data )
       assert.ok( /^\s*$/m.test( str ) )
       assert.ok( /\r?\nREV:2014-03-01T22:11:10Z\r?\nEND/g.test( str ) )
+      assert.doesNotThrow(() => new vCard().parse(data), SyntaxError, "normalize should remove empty lines at the start and end");
     })
 
     test( 'normalize should not concatenate words by unfolding lines', function() {

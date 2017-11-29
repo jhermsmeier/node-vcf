@@ -317,7 +317,7 @@ vCard.normalize = function (input) {
   * KEY\n BLOCK to go to KEYBLOCK instead of KEY BLOCK. Effectively letting foldlines remove random spaces from
   * the input when converting to vcard and parsing that vcard again.
   */
-  return (input + '').replace(/\r?\n\s*(?=\r?\n[^\x20\x09])/g, '').replace(/\r?\n([\x20\x09]|$)/g, '');
+  return (input + '').replace(/\r?\n\s*(?=\r?\n[^\x20\x09])/g, '').replace(/\r?\n([\x20\x09]|$)/g, '').trim();
 };
 
 /**
