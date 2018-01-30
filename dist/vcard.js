@@ -411,7 +411,7 @@ vCard.format = function (card, version) {
 
   vcf.push('END:VCARD');
 
-  return vcf.join('\n');
+  return vcf.join('\r\n');
 };
 
 // vCard Property constructor
@@ -694,7 +694,7 @@ module.exports = function foldLine( input, maxLength, hardWrap ) {
   var CRLF = '\r\n'
 
   var lines = [], len = input.length
-  var lastIndex = 0
+  var lastIndex = 0, index = 0;
 
   if (hardWrap) {
 
@@ -709,7 +709,7 @@ module.exports = function foldLine( input, maxLength, hardWrap ) {
     return lines.join( CRLF + ' ' )
   }
 
-  for (var index = 0; index < len;) {
+  while (index < len) {
     lastIndex = input.lastIndexOf( ' ', maxLength + index )
     if (input.slice(index).length <= maxLength) {
       lines.push( input.slice( index ) )
