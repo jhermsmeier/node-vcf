@@ -10,6 +10,13 @@
 $ npm install --save vcf
 ```
 
+## Build
+```sh
+$ npm run build
+```
+
+> it will replace `const` inside the build as the dep `foldline` is an ES6 lib
+
 ## Index
 
 * [Usage](#usage)

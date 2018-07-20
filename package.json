@@ -17,9 +17,13 @@
   },
   "dependencies": {
     "camelcase": "~3.0.0",
-    "foldline": "~1.0.0"
+    "foldline": "https://github.com/KAYLukas/node-foldline.git#master"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
     "matcha": "~0.7.0",
     "mocha": "^3.4.2"
   },
@@ -42,6 +46,7 @@
   },
   "scripts": {
     "test": "mocha --ui tdd",
-    "benchmark": "matcha"
+    "benchmark": "matcha",
+    "build": "browserify ./lib/vcard.js --standalone vCard -o dist/vcard.js -t [ babelify --presets [ env ] ]"
   }
 }

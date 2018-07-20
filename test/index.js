@@ -10,8 +10,15 @@ suite( 'vCard', function() {
       var data = fs.readFileSync( __dirname + '/data/empty-lines.vcf', 'utf8' )
       var str = vCard.normalize( data )
       assert.ok( /^\s*$/m.test( str ) )
-      assert.ok( str.indexOf( '\r\nREV:2014-03-01T22:11:10Z\r\nEND' ) !== -1 )
+      assert.ok( /\r?\nREV:2014-03-01T22:11:10Z\r?\nEND/g.test( str ) )
+      assert.doesNotThrow(() => new vCard().parse(data), SyntaxError, "normalize should remove empty lines at the start and end");
     })
+
+    test( 'normalize should not concatenate words by unfolding lines', function() {
+      var data = fs.readFileSync( __dirname + '/data/long-address.vcf', 'utf8' )
+      var str = vCard.normalize( data )
+      assert.ok( str.indexOf( 'Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz Straße 1') !== -1);
+    });
 
   })
 
@@ -22,6 +29,16 @@ suite( 'vCard', function() {
     suiteSetup( 'parse', function() {
       var data = fs.readFileSync( __dirname + '/data/vcard-4.0.vcf' )
       card = new vCard().parse( data )
+    })
+
+    test ( 'storing a PGP KEY in a vcard should not mangle the data', function () {
+      var key = fs.readFileSync( __dirname + '/data/publickey.asc', 'utf8' )
+      var property = new vCard.Property( 'key',  key, { group: 'item1'})
+      card.addProperty(property)
+      var reparsedCard = new vCard().parse(card.toString('4.0'));
+      card.remove('key');
+      assert.ok(reparsedCard.get('key').valueOf().indexOf( '-----BEGIN PGP PUBLIC KEY BLOCK-----' ) !== -1);
+      assert.ok(reparsedCard.get('key').valueOf().indexOf( '-----END PGP PUBLIC KEY BLOCK-----' ) !== -1);
     })
 
     test( 'should not have BEGIN as property', function() {
