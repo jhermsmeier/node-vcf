@@ -23,4 +23,14 @@ suite( 'vCard', function() {
 
   })
 
+  suite( 'Bugs', function() {
+
+    test( 'should strip quotes from lists (issue #23)', function() {
+      var data = fs.readFileSync( __dirname + '/data/quoted-list.vcf' )
+      var card = new vCard().parse( data )
+      assert.deepEqual( card.get( 'tel' ).type, [ 'voice', 'home' ] )
+    })
+
+  })
+
 })
