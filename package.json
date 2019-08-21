@@ -9,7 +9,7 @@
     "jcard",
     "vcf"
   ],
-  "main": "lib/vcard.js",
+  "main": "lib/vcard2.js",
   "author": {
     "name": "Jonas Hermsmeier",
     "email": "jhermsmeier@gmail.com",

@@ -12,6 +12,6 @@ function inspect( value ) {
 
 var filename = argv.shift()
 var data = fs.readFileSync( filename )
-var card = new vCard().parse( data )
+var card = vCard.parse( data )
 
 console.log( inspect( card ) )
