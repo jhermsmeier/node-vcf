@@ -33,8 +33,8 @@ suite( 'vCard', function() {
     })
 
     test( 'should parse vCard property values containing isolated \\n without delimiting, e.g. used in quoted-printable encoding (issue #31)', function() {
-      let data = vCard_withQuotedPrintableEncoding;
-      let card = new vCard().parse( data );
+      var data = vCard_withQuotedPrintableEncoding;
+      var card = new vCard().parse( data );
       assert.strictEqual(card.get( 'note' ).valueOf(), 'foobar foobar foobar foobar fo=\nobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar foobar fooba=\nr=0Afoobar foobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar=\n foobar foobar foobar foobar foobar')
     })
 
