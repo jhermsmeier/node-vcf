@@ -1,7 +1,6 @@
 var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
-var vCard_withQuotedPrintableEncoding = require( './data/vcard-withQuotedPrintableEncoding' )
 
 suite( 'vCard', function() {
 
@@ -33,9 +32,9 @@ suite( 'vCard', function() {
     })
 
     test( 'should parse vCard property values containing isolated \\n without delimiting, e.g. used in quoted-printable encoding (issue #31)', function() {
-      var data = vCard_withQuotedPrintableEncoding;
-      var card = new vCard().parse( data );
-      assert.strictEqual(card.get( 'note' ).valueOf(), 'foobar foobar foobar foobar fo=\nobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar foobar fooba=\nr=0Afoobar foobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar=\n foobar foobar foobar foobar foobar')
+      var data = require( './data/vcard-withQuotedPrintableEncoding' )
+      var card = new vCard().parse( data )
+      assert.strictEqual( card.get( 'note' ).valueOf(), 'foobar foobar foobar foobar fo=\nobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar foobar fooba=\nr=0Afoobar foobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar=\n foobar foobar foobar foobar foobar' )
     })
 
   })
