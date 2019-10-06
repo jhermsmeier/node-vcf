@@ -37,6 +37,13 @@ suite( 'vCard', function() {
       assert.strictEqual( card.get( 'note' ).valueOf(), 'foobar foobar foobar foobar fo=\nobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar foobar fooba=\nr=0Afoobar foobar foobar foobar foobar foobar=0Afoobar foobar foobar foobar=\n foobar foobar foobar foobar foobar' )
     })
 
+    test( 'should be able to parse own .toString() output (issue #33)', function() {
+      var data = fs.readFileSync( __dirname + '/data/vcard-4.0.vcf' )
+      var card = new vCard().parse( data )
+      var output = card.toString()
+      card.parse( output )
+    })
+
   })
 
 })
