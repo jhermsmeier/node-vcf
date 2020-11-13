@@ -1,8 +1,8 @@
 BEGIN:VCARD
-VERSION:3.0
 N:Gump;Forrest;;Mr.
 FN:Forrest Gump
 ORG:Bubba Gump Shrimp Co.
+VERSION:3.0
 TITLE:Shrimp Man
 PHOTO;VALUE=URL;TYPE=GIF:http://www.example.com/dir_photos/my_photo.gif
 TEL;TYPE=WORK,VOICE:(111) 555-1212
