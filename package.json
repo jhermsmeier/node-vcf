@@ -22,15 +22,6 @@
   "devDependencies": {
     "@jhermsmeier/control": "2.0.1"
   },
-  "testling": {
-    "harness": "mocha-tdd",
-    "files": "test/*.js",
-    "browsers": [
-      "ie/10..latest",
-      "chrome/latest",
-      "firefox/latest"
-    ]
-  },
   "homepage": "https://github.com/jhermsmeier/node-vcf",
   "repository": {
     "type": "git",
