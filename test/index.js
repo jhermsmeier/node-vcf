@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'static', function() {
+  context( 'static', function() {
 
     test( 'normalize should trim empty lines', function() {
       var data = fs.readFileSync( __dirname + '/data/empty-lines.vcf', 'utf8' )
@@ -15,11 +15,11 @@ suite( 'vCard', function() {
 
   })
 
-  suite( 'instance', function() {
+  context( 'instance', function() {
 
     var card = null
 
-    suiteSetup( 'parse', function() {
+    setup( 'parse', function() {
       var data = fs.readFileSync( __dirname + '/data/vcard-4.0.vcf' )
       card = new vCard().parse( data )
     })

@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'Real World Anomalies', function() {
+  context( 'Real World Anomalies', function() {
 
     test( 'should parse a vCard with empty lines (android)', function() {
       var data = fs.readFileSync( __dirname + '/data/empty-lines.vcf' )
@@ -23,7 +23,7 @@ suite( 'vCard', function() {
 
   })
 
-  suite( 'Bugs', function() {
+  context( 'Bugs', function() {
 
     test( 'should strip quotes from lists (issue #23)', function() {
       var data = fs.readFileSync( __dirname + '/data/quoted-list.vcf' )

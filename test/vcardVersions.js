@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'vCard Version Strings', function() {
+  context( 'vCard Version Strings', function() {
 
     test( 'toString version 4.0 should contain type with lowercase values', function() {
       var data = fs.readFileSync( __dirname + '/data/vcard-3.0.vcf' )

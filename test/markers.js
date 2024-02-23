@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'Markers', function() {
+  context( 'Markers', function() {
 
     test( 'should throw on missing BEGIN marker', function() {
       var data = 'VERSION:4.0\r\nURL;TYPE=work:http://www.example.comEND:VCARD\r\n'

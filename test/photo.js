@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'Photo', function() {
+  context( 'Photo', function() {
 
     test( 'URL parameters should not become object properties', function() {
       var data = fs.readFileSync( __dirname + '/data/xing.vcf' )

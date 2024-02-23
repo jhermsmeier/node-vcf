@@ -16,12 +16,11 @@
     "url": "https://jhermsmeier.de"
   },
   "dependencies": {
-    "camelcase": "^5.0.0",
-    "foldline": "^1.1.0"
+    "camelcase": "5.0.0",
+    "foldline": "1.1.0"
   },
   "devDependencies": {
-    "matcha": "^0.7.0",
-    "mocha": "^5.0.5"
+    "@jhermsmeier/control": "2.0.1"
   },
   "testling": {
     "harness": "mocha-tdd",
@@ -41,7 +40,6 @@
     "url": "https://github.com/jhermsmeier/node-vcf/issues"
   },
   "scripts": {
-    "test": "mocha --ui tdd",
-    "benchmark": "matcha"
+    "test": "control test"
   }
 }

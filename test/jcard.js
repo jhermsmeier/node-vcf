@@ -2,9 +2,9 @@ var vCard = require( '..' )
 var fs = require( 'fs' )
 var assert = require( 'assert' )
 
-suite( 'vCard', function() {
+context( 'vCard', function() {
 
-  suite( 'JSON / jCard', function() {
+  context( 'JSON / jCard', function() {
 
     test( 'fromJSON', function() {
       var data = require( './data/jcard' )
